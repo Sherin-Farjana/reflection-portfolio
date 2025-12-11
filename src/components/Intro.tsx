@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import { FlipWords } from "./ui/flip-words";
-import sherin from "../../public/Sherin.png";
 import Image from "next/image";
 import { HoverBorderGradientDemo } from "./HoverBorderGradientDemo";
 import { Separator } from "./ui/separator";
@@ -91,13 +90,12 @@ function Intro() {
           <BlurFade delay={0.04}>
             <Image
               onClick={toggleModal}
-              src={sherin}
+              src="/sherin.png"
               alt="Sherin"
               priority={true}
               width={192}
               height={192}
               quality={95}
-              placeholder="blur"
               className="sm:h-40 sm:w-40 cursor-pointer h-32 w-32 rounded-full object-cover object-top z-10 border-neutral-200 border"
             />
           </BlurFade>
@@ -116,14 +114,13 @@ function Intro() {
             />
             <div className="">
               <Image
-                src={sherin}
+                src="/sherin.png"
                 alt="sherin"
                 width={384} // Use the actual width of the image
                 height={384} // Use the actual height of the image
                 quality={100}
                 className="sm:h-96 sm:w-96 h-60 w-60 object-cover custom-object-position rounded-full"
                 layout="fixed" // You can also use layout="responsive" based on your needs
-                placeholder="blur"
               />
             </div>
           </div>
