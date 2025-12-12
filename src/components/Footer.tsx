@@ -2,7 +2,6 @@
 import React from "react";
 import { useTheme } from "@/context/themeContext";
 import { SocialText } from "./SocialText";
-
 function Footer() {
   const currentYear = new Date().getFullYear();
   const { theme } = useTheme();
