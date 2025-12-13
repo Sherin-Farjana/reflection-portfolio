@@ -21,19 +21,18 @@ export function ThreeDCardDemo() {
             .slice(0, showAll ? projectData.length : 4)
             .map((project, index) => (
               <motion.div
-                key={index} 
+                key={index}
                 initial={{ opacity: 0, maxHeight: 0 }}
-                animate={{ 
-                  opacity: 1, 
-                  maxHeight: 1000, 
-                  transition: { duration: 1, ease: [0.16, 0.5, 0.3, 1] }
+                animate={{
+                  opacity: 1,
+                  maxHeight: 1000,
+                  transition: { duration: 1, ease: [0.16, 0.5, 0.3, 1] },
                 }}
-                exit={{ 
-                  opacity: 0, 
+                exit={{
+                  opacity: 0,
                   maxHeight: 0,
-                  transition: { duration: 0.5, ease: [0.16, 0.5, 0.3, 1] }
+                  transition: { duration: 0.5, ease: [0.16, 0.5, 0.3, 1] },
                 }}
-               
               >
                 <CardContainer className="inter-var">
                   <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0870b8]/[0.25] transition-shadow duration-300 dark:bg-[#050505] dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl p-6 border flex flex-col sm:-mt-32 -mt-24 justify-between min-h-[450px] max-h-[550px]">
@@ -75,7 +74,7 @@ export function ThreeDCardDemo() {
                       <CardItem
                         translateZ={20}
                         as={Link}
-                        href={project.visit === "no" ? project.github : project.visit}
+                        href={project.visit}
                         target="__blank"
                         className="px-2 py-1.5 flex gap-1 justify-center items-center rounded-xl text-xs font-normal dark:text-white"
                       >
@@ -92,7 +91,7 @@ export function ThreeDCardDemo() {
                       </CardItem>
                     </div>
                     <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-px" />
-                    </CardBody>
+                  </CardBody>
                 </CardContainer>
               </motion.div>
             ))}
@@ -114,4 +113,3 @@ export function ThreeDCardDemo() {
     </div>
   );
 }
-
