@@ -10,10 +10,13 @@ export function HoverBorderGradientDemo() {
         as="button"
         className="dark:bg-black bg-white text-black dark:text-white py-1 md:text-sm text-xs group"
       >
-        <a href="https://drive.google.com/file/d/1o3PBo-CGQNJwsBlDclLOsaghvTK1-ONo/view?usp=drive_link" target="_blank" className="flex items-center space-x-2">
- 
-        <span>Resume</span>
-        <AceternityLogo />
+        <a
+          href="https://drive.google.com/file/d/1kuU16bmOIsNiLPdc2h6_cwFd_rlR2pqi/view?usp=sharing"
+          target="_blank"
+          className="flex items-center space-x-2"
+        >
+          <span>Resume</span>
+          <AceternityLogo />
         </a>
       </HoverBorderGradient>
     </div>
