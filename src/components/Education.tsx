@@ -3,6 +3,7 @@ import SectionHeading from "./section-heading";
 import BlurFade from "./ui/blur-fade";
 import { EducationData } from "./EducationData";
 
+//Education section wrapper
 function Experience() {
   return (
     <section
@@ -11,10 +12,10 @@ function Experience() {
     >
       <BlurFade delay={0.04 * 7}>
         <SectionHeading>Education</SectionHeading>
-        </BlurFade>
-        <BlurFade delay={0.04 * 8}>
-        <EducationData/>
-        </BlurFade>
+      </BlurFade>
+      <BlurFade delay={0.04 * 8}>
+        <EducationData />
+      </BlurFade>
     </section>
   );
 }

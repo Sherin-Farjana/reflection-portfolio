@@ -2,14 +2,16 @@
 import React from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { SkillsData } from "@/lib/SkillsData";
 
+// Skills section with staggered fade-in animations using Framer Motion
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
     y: 100,
   },
+
+  // Animation variants for sequential skill card entrance
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
@@ -19,6 +21,7 @@ const fadeInAnimationVariants = {
   }),
 };
 
+// Skill data sourced from centralized SkillsData configuration
 const skills = SkillsData();
 
 function Skills() {

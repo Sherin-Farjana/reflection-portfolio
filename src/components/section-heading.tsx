@@ -1,20 +1,18 @@
-'use client'
-import React, { ReactNode } from 'react'
+"use client";
+import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
 
+// Reusable animated section heading wrapper
 interface SectionHeadingProps {
   children: ReactNode;
 }
 
-function SectionHeading({children} : SectionHeadingProps) {
+function SectionHeading({ children }: SectionHeadingProps) {
   return (
-    <motion.div
-    className=' text-xl font-bold mb-2 text-black dark:text-white'
-    
-    >
-        {children}
+    <motion.div className=" text-xl font-bold mb-2 text-black dark:text-white">
+      {children}
     </motion.div>
-  )
+  );
 }
 
-export default SectionHeading
+export default SectionHeading;

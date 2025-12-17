@@ -1,7 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { cn } from "@/lib/utils"; //Utility for conditional class names
 import React, {
   createContext,
   useState,
@@ -10,10 +9,15 @@ import React, {
   useEffect,
 } from "react";
 
+//Context to track mouse hover state for 3D interactions
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined);
 
+/**
+ * CardContainer
+ * Provides 3D tilt interaction and hover state context for child components
+ */
 export const CardContainer = ({
   children,
   className,
@@ -26,6 +30,7 @@ export const CardContainer = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
 
+  // Handles 3D rotation based on cursor position
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const { left, top, width, height } =
@@ -35,11 +40,13 @@ export const CardContainer = ({
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
+  //Enables animation state on hover
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsMouseEntered(true);
     if (!containerRef.current) return;
   };
 
+  //Resets transformations when cursor leaves
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
@@ -76,6 +83,10 @@ export const CardContainer = ({
   );
 };
 
+/**
+ * CardBody
+ * Wrapper that preserves 3D space for nested card elements
+ */
 export const CardBody = ({
   children,
   className,
@@ -95,6 +106,10 @@ export const CardBody = ({
   );
 };
 
+/**
+ * CardItem
+ * Individual animated element inside the 3D card
+ */
 export const CardItem = ({
   as: Tag = "div",
   children,
@@ -121,10 +136,12 @@ export const CardItem = ({
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
+  //Triggers animation when hover state changes
   useEffect(() => {
     handleAnimations();
   }, [isMouseEntered]);
 
+  // Applies or resets transform animations
   const handleAnimations = () => {
     if (!ref.current) return;
     if (isMouseEntered) {
@@ -145,7 +162,9 @@ export const CardItem = ({
   );
 };
 
-// Create a hook to use the context
+/**
+ * Custom hook to access mouse hover state
+ */
 export const useMouseEnter = () => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {

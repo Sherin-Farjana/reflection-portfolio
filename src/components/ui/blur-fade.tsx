@@ -1,10 +1,22 @@
 "use client";
 
-import { AnimatePresence, motion, useInView, UseInViewOptions, Variants } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  UseInViewOptions,
+  Variants,
+} from "framer-motion";
 import { useRef } from "react";
 
+/**
+ * Type helper for Intersection Observer margin values
+ */
 type MarginType = UseInViewOptions["margin"];
 
+/**
+ * Props for BlurFade animation wrapper
+ */
 interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;
@@ -19,6 +31,12 @@ interface BlurFadeProps {
   inViewMargin?: MarginType;
   blur?: string;
 }
+
+/**
+ * BlurFade
+ * Animates content with fade, blur, and vertical motion
+ * Optionally triggers animation when element enters viewport
+ */
 const BlurFade = ({
   children,
   className,
@@ -31,8 +49,14 @@ const BlurFade = ({
   blur = "6px",
 }: BlurFadeProps) => {
   const ref = useRef(null);
+
+  //Detects when component enters viewport
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
+
+  //Allows forcing animation without viewport detection
   const isInView = !inView || inViewResult;
+
+  //Default animation variants
   const defaultVariants: Variants = {
     hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },

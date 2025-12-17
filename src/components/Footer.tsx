@@ -3,7 +3,10 @@ import React from "react";
 import { useTheme } from "@/context/themeContext";
 import { SocialText } from "./SocialText";
 function Footer() {
+  // Get current year dynamically for copyright
   const currentYear = new Date().getFullYear();
+
+  // Read theme (light / dark) from global context
   const { theme } = useTheme();
 
   return (

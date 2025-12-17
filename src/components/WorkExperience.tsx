@@ -3,6 +3,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import ALT from "../../public/Altair.png";
 
+// Professional work experience timeline data and presentation
 export function WorkExperience() {
   const data = [
     {
@@ -71,6 +72,7 @@ export function WorkExperience() {
   ];
   return (
     <div className="w-full mt-5">
+      {/* Timeline entries describing roles, duration, and responsibilities */}
       <Timeline data={data} />
     </div>
   );

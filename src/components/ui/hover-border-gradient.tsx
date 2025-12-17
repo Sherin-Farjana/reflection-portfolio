@@ -3,8 +3,15 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+/**
+ * Direction enum for animated gradient movement
+ */
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
 
+/**
+ * HoverBorderGradient
+ * Animated gradient border component with hover and idle rotation
+ */
 export function HoverBorderGradient({
   children,
   containerClassName,
@@ -27,6 +34,9 @@ export function HoverBorderGradient({
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>("TOP");
 
+  /**
+   * Rotates gradient direction when idle
+   */
   const rotateDirection = (currentDirection: Direction): Direction => {
     const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
     const currentIndex = directions.indexOf(currentDirection);
@@ -36,6 +46,9 @@ export function HoverBorderGradient({
     return directions[nextIndex];
   };
 
+  /**
+   * Gradient maps per direction
+   */
   const movingMap: Record<Direction, string> = {
     TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
     LEFT: "radial-gradient(16.6% 43.1% at 0% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -48,6 +61,9 @@ export function HoverBorderGradient({
   const highlight =
     "radial-gradient(75% 181.15942028985506% at 50% 50%, #00bcd4 0%, rgba(255, 255, 255, 0) 100%)";
 
+  /**
+   * Automatically rotates gradient when not hovered
+   */
   useEffect(() => {
     if (!hovered && !disabled) {
       const interval = setInterval(() => {
@@ -81,6 +97,8 @@ export function HoverBorderGradient({
       >
         {children}
       </div>
+
+      {/* Animated gradient layer */}
       <motion.div
         className={cn(
           "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
@@ -93,12 +111,15 @@ export function HoverBorderGradient({
         }}
         initial={{ background: movingMap[direction] }}
         animate={{
-          background: hovered && !disabled
-            ? [movingMap[direction], highlight]
-            : movingMap[direction],
+          background:
+            hovered && !disabled
+              ? [movingMap[direction], highlight]
+              : movingMap[direction],
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
       />
+
+      {/*Inner background*/}
       <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
     </Tag>
   );

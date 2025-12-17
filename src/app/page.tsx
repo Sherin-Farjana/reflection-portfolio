@@ -1,29 +1,32 @@
 "use client";
 import type { NextPage } from "next";
+import { useTheme } from "@/context/themeContext";
+import { Toaster } from "react-hot-toast";
+
+//Page sections
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
-import SectionDivider from "@/components/SectionDivider";
 import Contact from "@/components/Contact";
-import { Toaster } from "react-hot-toast";
-import { useTheme } from "@/context/themeContext";
 import Project from "@/components/Project";
-import { useEffect } from "react";
 import Experience from "@/components/Experience";
-import  Education  from "@/components/Education";
+import Education from "@/components/Education";
 
+//Main landing page
 const Home: NextPage = () => {
   const { theme, toggleTheme } = useTheme();
   return (
     <main className=" max-w-screen overflow-x-hidden dark:bg-black flex flex-col items-center scrollbar-hide">
-      
+      {/*Page sections*/}
       <Hero />
       <About />
       <Experience />
-      <Education/>
+      <Education />
       <Skills />
       <Project />
       <Contact />
+
+      {/*Global toast notifications*/}
       <Toaster
         position="top-center"
         reverseOrder={false}

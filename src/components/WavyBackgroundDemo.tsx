@@ -3,6 +3,7 @@ import React from "react";
 import { WavyBackground } from "./ui/wavy-background";
 import IconCloud from "@/components/ui/icon-cloud";
 
+// Animated wavy background section with rotating technology icon cloud
 const slugs = [
   "typescript",
   "javascript",

@@ -1,5 +1,6 @@
+// Generates sitemap.xml dynamically for better SEO indexing
 export async function GET() {
-  const baseUrl = "https://sherinfarjana.vercel.app"; // Replace with your actual domain
+  const baseUrl = "https://sherinfarjana.vercel.app"; // Production domain
 
   return new Response(
     `

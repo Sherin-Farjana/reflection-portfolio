@@ -2,6 +2,7 @@
 import React from "react";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
+// Resume CTA button with animated border
 export function HoverBorderGradientDemo() {
   return (
     <div className=" flex text-center">

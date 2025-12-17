@@ -7,13 +7,17 @@ import BlurFade from "./ui/blur-fade";
 
 function About() {
   return (
+    // About section with scroll offset for in-page navigation
     <section
       className="mt-10 max-w-[45.3rem] z-20 scroll-mt-44 leading-8 px-5 lg:px-0 md:px-5"
       id="about"
     >
+      {/* Animated section heading */}
       <BlurFade delay={0.04 * 3}>
         <SectionHeading>About Me</SectionHeading>
       </BlurFade>
+
+      {/* Animated description text */}
       <BlurFade delay={0.04 * 4}>
         <p className="text-left TextClr mt-5">
           I&apos;m a passionate{" "}
@@ -24,7 +28,7 @@ function About() {
           with nearly three years of experience as a software developer,
           specializing in C, C++, OpenGL, and modern web technologies. In web
           development, I create interactive, responsive, and high-performance
-          applications using{" "}
+          applications using {/* Technology stack chips with icons */}
           <span className="inline-flex items-center align-middle rounded-md py-0.5 chip chipText md:px-2 px-1 text-sm font-semibold h-6">
             <Image
               src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/react-js-icon.png"

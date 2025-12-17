@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@/context/themeContext";
 
+// Theme toggle button for switching between light and dark modes
 const ThemeSwitch = () => {
   const { theme, toggleTheme } = useTheme();
 

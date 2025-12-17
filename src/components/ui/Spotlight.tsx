@@ -1,6 +1,10 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Spotlight
+ * Animated SVG spotlight background effect
+ */
 type SpotlightProps = {
   className?: string;
   fill?: string;

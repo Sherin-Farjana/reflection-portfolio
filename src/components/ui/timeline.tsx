@@ -19,9 +19,16 @@ interface TimelineEntry {
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+  //reference for measuring total timeline height
   const ref = useRef<HTMLDivElement>(null);
+
+  //Reference used by Framer motion for scroll tracking
   const containerRef = useRef<HTMLDivElement>(null);
+
+  //Total height of timeline (used for animated vertical line)
   const [height, setHeight] = useState(0);
+
+  //Track expanded/collapsed state per timeline item
   const [expandedItems, setExpandedItems] = useState<{
     [key: number]: boolean;
   }>({});
@@ -38,17 +45,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     offset: ["start 70%", "end 20%"],
   });
 
+  //Toggle expand/collapse for a specific timeline entry
   const handleClick = (index: number) => {
     setExpandedItems((prev) => ({
       ...prev,
-      [index]: !prev[index], // Toggle the specific item's state
+      [index]: !prev[index],
     }));
   };
+
+  //Animate vertical progress line based on scroll
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   useEffect(() => {
-    // Calculate the total height of the timeline
     const calculateHeight = () => {
       if (ref.current) {
         let height = 0;

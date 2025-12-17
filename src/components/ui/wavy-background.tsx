@@ -27,6 +27,7 @@ export const WavyBackground = ({
   waveOpacity?: number;
   [key: string]: any;
 }) => {
+  //Simplex noise generator for organic wave motion
   const noise = createNoise3D();
   let w: number,
     h: number,
@@ -35,7 +36,11 @@ export const WavyBackground = ({
     x: number,
     ctx: any,
     canvas: any;
+
+  //Canvas reference
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  //Determine animation speed based on prop
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -47,6 +52,7 @@ export const WavyBackground = ({
     }
   };
 
+  //Initialize canvas and start animation loop
   const init = () => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
@@ -55,6 +61,7 @@ export const WavyBackground = ({
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
+      //Match canvas size to viewport
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
@@ -69,6 +76,8 @@ export const WavyBackground = ({
     "#e879f9",
     "#22d3ee",
   ];
+
+  //Draw animated noise-based waves
   const drawWave = (n: number) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -77,7 +86,7 @@ export const WavyBackground = ({
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
         var y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
+        ctx.lineTo(x, y + h * 0.5);
       }
       ctx.stroke();
       ctx.closePath();
@@ -103,7 +112,6 @@ export const WavyBackground = ({
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
     setIsSafari(
       typeof window !== "undefined" &&
         navigator.userAgent.includes("Safari") &&

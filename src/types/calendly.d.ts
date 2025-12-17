@@ -1,4 +1,3 @@
-// src/types/calendly.d.ts
 export {};
 
 declare global {

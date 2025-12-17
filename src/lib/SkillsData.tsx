@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   SiGit,
   SiJavascript,
@@ -18,18 +17,22 @@ import {
   SiCss3,
 } from "react-icons/si";
 
+// Skill definition for UI rendering
 interface Skill {
   name: string;
   icon: JSX.Element; // Use JSX.Element for React elements like SVG
 }
 
+// Skill definition for UI rendering
 const IconSize = 25;
 
+// Skill definition for UI rendering
 export const SkillsData = (): Skill[] => {
   return [
     {
       name: "HTML",
       icon: (
+        //HTM5 skill badge
         <div
           style={{
             backgroundColor: "#f14f2f15",
@@ -46,6 +49,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "CSS",
       icon: (
+        //CSS3 skill badge
         <div
           style={{
             backgroundColor: "#3178c616",
@@ -62,6 +66,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "SASS",
       icon: (
+        //SASS skill badge
         <div
           style={{
             backgroundColor: "#8902451d",
@@ -78,6 +83,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "JavaScript",
       icon: (
+        //Javascript skill badge
         <div
           style={{
             backgroundColor: "#f7de1e16",
@@ -94,6 +100,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "TypeScript",
       icon: (
+        //Typescript skill badge
         <div
           style={{
             backgroundColor: "#3178c616",
@@ -110,6 +117,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Tailwind",
       icon: (
+        //Tailwind skill badge
         <div
           style={{
             backgroundColor: "#37bbf815",
@@ -126,6 +134,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Bootstrap",
       icon: (
+        //Bootstrap skill badge
         <div
           style={{
             backgroundColor: "#37bbf815",
@@ -142,6 +151,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "React",
       icon: (
+        //React skill badge
         <div
           style={{
             backgroundColor: "#61dcfb10",
@@ -158,6 +168,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Next.js",
       icon: (
+        //NextJS skill badge
         <div
           style={{
             backgroundColor: "#5f5f5f16",
@@ -174,6 +185,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Jest",
       icon: (
+        //Jest skill badge
         <div
           style={{
             backgroundColor: "#8902451d",
@@ -190,6 +202,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Webpack",
       icon: (
+        //Webpack skill badge
         <div
           style={{
             backgroundColor: "#61dcfb10",
@@ -206,6 +219,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Babel",
       icon: (
+        //Babel skill badge
         <div
           style={{
             backgroundColor: "#f7de1e16",
@@ -222,6 +236,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Vercel",
       icon: (
+        //Vercel skill badge
         <div
           style={{
             backgroundColor: "#0000001e",
@@ -238,6 +253,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Netlify",
       icon: (
+        //Netlify skill badge
         <div
           style={{
             backgroundColor: "#61dcfb10",
@@ -254,6 +270,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "MySQL",
       icon: (
+        //MYSQL skill badge
         <div
           style={{
             backgroundColor: "#00758f15",
@@ -270,6 +287,7 @@ export const SkillsData = (): Skill[] => {
     {
       name: "Git",
       icon: (
+        //Git skill badge
         <div
           style={{
             backgroundColor: "#f14f2f15",

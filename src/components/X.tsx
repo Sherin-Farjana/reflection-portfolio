@@ -1,10 +1,17 @@
-import React from 'react';
+import React from "react";
 
-export type IconProps = React.SVGProps<SVGSVGElement>;  // Use SVGProps
+// Shared SVG icon prop type for reusable icon components
+export type IconProps = React.SVGProps<SVGSVGElement>; // Use SVGProps
 
 function X(props: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' {...props}>
+    // X (Twitter) brand icon rendered as scalable SVG
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      {...props}
+    >
       <title>X</title>
       <path
         fill="currentColor"

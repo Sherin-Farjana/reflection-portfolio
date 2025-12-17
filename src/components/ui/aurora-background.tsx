@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"; //Class name utility
 import React, { ReactNode } from "react";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
@@ -6,6 +6,10 @@ interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   showRadialGradient?: boolean;
 }
 
+/**
+ * AuroraBackground
+ * Provides animated aurora-style gradient background
+ */
 export const AuroraBackground = ({
   className,
   children,
@@ -21,7 +25,10 @@ export const AuroraBackground = ({
         )}
         {...props}
       >
-        <div className="absolute inset-0 overflow-hidden z-[1]"> {/* Adjusted z-index here */}
+        {/* Animated aurora gradient layer */}
+        <div className="absolute inset-0 overflow-hidden z-[1]">
+          {" "}
+          {/* Adjusted z-index here */}
           <div
             className={cn(
               `
@@ -45,6 +52,7 @@ export const AuroraBackground = ({
             )}
           ></div>
         </div>
+        {/* Foreground content */}
         {children}
       </div>
     </main>

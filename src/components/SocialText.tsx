@@ -1,28 +1,33 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
-import { linksSocial } from '@/lib/data';
-import { cn } from '@/lib/utils';
-import { ComponentType, ReactNode, SVGProps } from 'react';
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { linksSocial } from "@/lib/data";
+import { cn } from "@/lib/utils";
+import { ComponentType, ReactNode, SVGProps } from "react";
 
+// Text-based social links with animated reveal on hover
 interface LinkTextProps {
-    className?: string;
-    href: string;
-    children: ReactNode;
-    icon: ComponentType<SVGProps<SVGSVGElement>>;
-    outline?: boolean;
-  }
-  
-export function LinkText({ className, href, children, icon: Icon, outline }:LinkTextProps) {
+  className?: string;
+  href: string;
+  children: ReactNode;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  outline?: boolean;
+}
+
+export function LinkText({
+  className,
+  href,
+  children,
+  icon: Icon,
+  outline,
+}: LinkTextProps) {
   return (
-    <li className={cn(className, 'flex')}>
+    <li className={cn(className, "flex")}>
       <Link href={href} rel="noopener noreferrer" target="_blank">
         <div className="relative group">
           <div className="absolute z-10 flex items-center justify-center text-black dark:text-white w-full h-full transition-all translate-y-5 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-            <p className="font-bold cursor-pointer body-primary">
-              {children}
-            </p>
+            <p className="font-bold cursor-pointer body-primary">{children}</p>
             <div className="relative flex items-center group">
               <ArrowUpRight className="absolute w-4 h-4 transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100" />
             </div>
@@ -43,6 +48,7 @@ export function LinkText({ className, href, children, icon: Icon, outline }:Link
   );
 }
 
+// Individual social link with icon and animated label
 export function SocialText() {
   return (
     <div className="">

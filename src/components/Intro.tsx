@@ -101,7 +101,6 @@ function Intro() {
           </BlurFade>
         </div>
 
-        {/* Modal (red div) */}
         {isModalOpen && (
           <div
             className={`fixed inset-0 w-full h-full z-[99999] bg-[#1f1f1f] bg-opacity-75 duration-300 transition-opacity flex items-center justify-center`}
@@ -120,7 +119,7 @@ function Intro() {
                 height={384} // Use the actual height of the image
                 quality={100}
                 className="sm:h-96 sm:w-96 h-60 w-60 object-cover custom-object-position rounded-full"
-                layout="fixed" // You can also use layout="responsive" based on your needs
+                layout="fixed"
               />
             </div>
           </div>

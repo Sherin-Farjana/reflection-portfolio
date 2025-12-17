@@ -10,6 +10,7 @@ import { projectData } from "@/lib/data";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ArrowUpRight } from "lucide-react";
 
+// Projects showcase with 3D hover cards and expand/collapse support
 export function ThreeDCardDemo() {
   const [showAll, setShowAll] = useState(false);
 
@@ -17,6 +18,7 @@ export function ThreeDCardDemo() {
     <div className="relative text-center">
       <div className="sm:mt-20 mt-14 sm:grid sm:grid-cols-2 sm:gap-x-4 flex flex-col">
         <AnimatePresence>
+          {/* Controls whether all projects or a limited set are displayed */}
           {projectData
             .slice(0, showAll ? projectData.length : 4)
             .map((project, index) => (
@@ -98,6 +100,7 @@ export function ThreeDCardDemo() {
         </AnimatePresence>
       </div>
 
+      {/* Animated project card rendering with Framer Motion */}
       <button
         onClick={() => setShowAll(!showAll)}
         className="inline-flex absolute left-1/2 -translate-x-1/2 bottom-5 items-center gap-1 text-sm transition-all dark:text-white/75 duration-200 text-neutral-600 font-semibold dark:hover:text-white hover:text-black"

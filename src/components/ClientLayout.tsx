@@ -5,9 +5,15 @@ import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  //Controls whether the preloader is visible
   const [isLoading, setIsLoading] = useState(true);
 
+  // Listen for custom event fired by Preloader
   useEffect(() => {
     const handleComplete = () => setIsLoading(false);
     document.addEventListener("preloaderComplete", handleComplete);
@@ -19,7 +25,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <>
+      {/* Show preloader until loading completes */}
       {isLoading && <Preloader />}
+
+      {/* Main layout rendered after preloader */}
       {!isLoading && (
         <div>
           <Navbar />

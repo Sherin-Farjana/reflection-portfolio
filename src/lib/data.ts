@@ -3,15 +3,10 @@ import deepscribe from "../../public/Deepscribe.png";
 import nasa from "../../public/Nasa.png";
 import startup from "../../public/startup.png";
 import unstoppable from "../../public/Unstoppable.png";
-import { divider, image } from "@nextui-org/theme";
-// data/links.js
 import { Github, Linkedin, Instagram } from "lucide-react";
-
-import { BsThreads } from "react-icons/bs";
 import { ComponentType, SVGProps } from "react";
-import steam from "@/components/steam";
-import X from "@/components/X";
 
+// Shape for social link configuration
 interface LinkSocial {
   href: string;
   label: string;
@@ -19,6 +14,7 @@ interface LinkSocial {
   outline?: boolean;
 }
 
+// Centralized project metadata for portfolio rendering
 export const projectData = [
   {
     title: "Unstoppable",
@@ -67,6 +63,7 @@ export const projectData = [
   },
 ] as const;
 
+// Social media links used across navigation and footer
 export const linksSocial: LinkSocial[] = [
   {
     href: "https://github.com/Sherin-Farjana",

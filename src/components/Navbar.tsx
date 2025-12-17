@@ -12,6 +12,7 @@ import {
   IconBriefcase,
 } from "@tabler/icons-react";
 
+// Navigation items for floating navbar
 function Navbar() {
   const navItems = [
     {

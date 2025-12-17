@@ -6,6 +6,7 @@ import { linksSocial } from "@/lib/data";
 
 import { ComponentType, SVGProps } from "react";
 
+// Generic social icon link component with hover effects
 interface SocialLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -30,6 +31,7 @@ function SocialLink({
   );
 }
 
+// Renders primary social links with animated hover indicator
 export function SocialLinks() {
   return (
     <div className="flex items-center justify-start md:gap-8 gap-4">

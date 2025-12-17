@@ -4,12 +4,14 @@ import { BsFillPatchCheckFill } from "react-icons/bs";
 import PU from "../../public/PU.png";
 import LC from "../../public/LC.png";
 
+// Structured education data passed into Timeline component
 export function EducationData() {
   const data = [
     {
       title: "Post Graduate Diploma in Full Stack Software Development",
       logo: LC,
       company: (
+        // Institution name with verification icon
         <div className=" flex flex-row items-center justify-between w-full  md:text-sm text-xs">
           <p className=" flex flex-row items-center text-neutral-600 font-medium dark:text-neutral-400">
             <BsFillPatchCheckFill className="text-blue-500 mr-2 text-base" />{" "}
@@ -23,6 +25,7 @@ export function EducationData() {
         </p>
       ),
       content: (
+        // Expanded description shown on timeline click
         <div>
           <div className="">
             <div className="flex gap-2 items-center leading-normal text-left text-neutral-600 font-normal dark:text-neutral-400 text-xs md:text-sm">

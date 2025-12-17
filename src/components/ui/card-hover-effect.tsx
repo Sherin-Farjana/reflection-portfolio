@@ -3,6 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
+/**
+ * HoverEffect
+ * Displays animated cards with a shared hover background effect
+ */
 export const HoverEffect = ({
   items,
   className,
@@ -31,6 +35,7 @@ export const HoverEffect = ({
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
+          {/*Animated hover background*/}
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
@@ -58,6 +63,9 @@ export const HoverEffect = ({
   );
 };
 
+/**
+ * Card container component
+ */
 export const Card = ({
   className,
   children,
@@ -78,6 +86,10 @@ export const Card = ({
     </div>
   );
 };
+
+/**
+ * Card title text
+ */
 export const CardTitle = ({
   className,
   children,
@@ -91,6 +103,10 @@ export const CardTitle = ({
     </h4>
   );
 };
+
+/**
+ * Card description text
+ */
 export const CardDescription = ({
   className,
   children,

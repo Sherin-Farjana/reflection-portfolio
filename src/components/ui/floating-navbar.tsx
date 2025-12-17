@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 import { cn } from "@/lib/utils";
-import ThemeSwitch from '@/components/ThemeSwitch';
+import ThemeSwitch from "@/components/ThemeSwitch";
 import { useRouter, usePathname } from "next/navigation";
 
+/**
+ * FloatingNav
+ * A scroll-aware floating navigation bar with smooth hide/show behavior
+ */
 export const FloatingNav = ({
   navItems,
   className,
@@ -20,6 +29,9 @@ export const FloatingNav = ({
   const pathname = usePathname(); // Get the current pathname
   const [visible, setVisible] = useState(true);
 
+  /**
+   * Controls navbar visibility based on scroll direction
+   */
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
       let direction = current - scrollYProgress.getPrevious()!;
@@ -31,14 +43,14 @@ export const FloatingNav = ({
     }
   });
 
+  /**
+   * Handles navigation for both hash links and route changes
+   */
   const handleNavClick = (link: string) => {
-    // Check if the link is a hash link (internal sections)
     if (link.startsWith("#")) {
-      // If on a different route, navigate to the home page and append the hash
       if (pathname !== "/") {
         router.push(`/${link}`);
       } else {
-        // Scroll to the section on the current page
         const sectionId = link.replace("#", "");
         const sectionElement = document.getElementById(sectionId);
         if (sectionElement) {
@@ -46,7 +58,6 @@ export const FloatingNav = ({
         }
       }
     } else {
-      // Handle normal route navigation
       router.push(link);
     }
   };
@@ -79,9 +90,7 @@ export const FloatingNav = ({
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            {/* <span className="absolute inset-x-0 w-full mx-auto -bottom-[6.5px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px" /> */}
             <span className="hidden sm:block text-sm">{navItem.name}</span>
-            
           </button>
         ))}
         <ThemeSwitch />

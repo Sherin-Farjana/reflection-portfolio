@@ -10,6 +10,9 @@ import {
   SimpleIcon,
 } from "react-icon-cloud";
 
+/**
+ * Default configuration for icon cloud
+ */
 export const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
     style: {
@@ -33,10 +36,12 @@ export const cloudProps: Omit<ICloud, "children"> = {
     outlineColour: "#0000",
     maxSpeed: 0.04,
     minSpeed: 0.02,
-    // dragControl: false,
   },
 };
 
+/**
+ * Renders a theme-aware icon
+ */
 export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
@@ -67,15 +72,17 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
 
+  //Fetch icons dynamically
   useEffect(() => {
     fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
   }, [iconSlugs]);
 
+  //Memoized icon rendering
   const renderedIcons = useMemo(() => {
     if (!data) return null;
 
     return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light"),
+      renderCustomIcon(icon, theme || "light")
     );
   }, [data, theme]);
 

@@ -3,6 +3,7 @@ import { WorkExperience } from "./WorkExperience";
 import SectionHeading from "./section-heading";
 import BlurFade from "./ui/blur-fade";
 
+//Work experience section wrapper
 function Experience() {
   return (
     <section
@@ -11,10 +12,10 @@ function Experience() {
     >
       <BlurFade delay={0.04 * 5}>
         <SectionHeading>Work Experience</SectionHeading>
-        </BlurFade>
-        <BlurFade delay={0.04 * 6}>
-        <WorkExperience/>
-        </BlurFade>
+      </BlurFade>
+      <BlurFade delay={0.04 * 6}>
+        <WorkExperience />
+      </BlurFade>
     </section>
   );
 }

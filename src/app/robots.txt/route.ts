@@ -1,4 +1,4 @@
-// app/robots.txt/route.ts
+// Generates robots.txt dynamically for search engine crawlers
 export async function GET() {
   const robots = `
     User-agent: *

@@ -1,7 +1,6 @@
 import { HoverEffect } from "./ui/card-hover-effect";
 
-
-
+// Wrapper component for hoverable project cards
 export function CardHoverEffectDemo() {
   return (
     <div className="max-w-5xl mx-auto px-8">
@@ -9,6 +8,8 @@ export function CardHoverEffectDemo() {
     </div>
   );
 }
+
+// Project data passed into hover effect component
 export const projects = [
   {
     title: "Stripe",
