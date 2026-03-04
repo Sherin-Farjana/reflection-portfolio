@@ -12,7 +12,7 @@ export function HoverBorderGradientDemo() {
         className="dark:bg-black bg-white text-black dark:text-white py-1 md:text-sm text-xs group"
       >
         <a
-          href="https://drive.google.com/file/d/1kuU16bmOIsNiLPdc2h6_cwFd_rlR2pqi/view?usp=sharing"
+          href="https://drive.google.com/file/d/1cx_JTSh0x3Div_dcJIPGjGnf_ZlNqGc5/view?usp=sharing"
           target="_blank"
           className="flex items-center space-x-2"
         >

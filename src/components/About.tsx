@@ -25,7 +25,7 @@ function About() {
             {" "}
             Front-End developer
           </span>{" "}
-          with nearly three years of experience as a software developer,
+          with over four years of experience as a software developer,
           specializing in C, C++, OpenGL, and modern web technologies. In web
           development, I create interactive, responsive, and high-performance
           applications using {/* Technology stack chips with icons */}
